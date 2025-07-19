@@ -1,0 +1,8 @@
+server:
+  port: 8081
+
+rest-service:
+  ms-fila-atendimento:
+    url: http://localhost:8080
+  ms-gestao-upa:
+    url: http://localhost:8082
