@@ -1,6 +1,5 @@
 package br.com.fiap.mstempoespera.infrastructure.integration.rest;
 
-import br.com.fiap.mstempoespera.core.entity.PatientAttendanceRecord;
 import br.com.fiap.mstempoespera.core.entity.SaoPauloCity;
 import br.com.fiap.mstempoespera.infrastructure.integration.to.upa.PatientAttendanceRecordTo;
 import br.com.fiap.mstempoespera.infrastructure.integration.to.upa.UpaTo;
@@ -34,7 +33,7 @@ public class UpaRestClient {
 
     public Flux<PatientAttendanceRecordTo> requestPatientAttendancePeriod(String upaId, LocalDateTime startDate, LocalDateTime endDate) {
         return webClient.get()
-                .uri("/api/v1/upas/{upaId}/atendimentos/periodo?inicio={startDate}&fim={endDate}", upaId, startDate, endDate)
+                .uri("/api/v1/upas/{upaId}/atendimentos/periodo?inicio=" + startDate + "&fim=" + endDate, upaId)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .bodyToFlux(PatientAttendanceRecordTo.class)

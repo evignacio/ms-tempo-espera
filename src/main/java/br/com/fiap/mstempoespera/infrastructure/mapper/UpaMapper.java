@@ -18,7 +18,7 @@ public abstract class UpaMapper {
         return new PatientAttendanceRecord(
                 to.upa().id(),
                 to.patientName(),
-                to.urgencyLevel().getEmergencyCategory(),
+                to.urgencyLevel(),
                 to.creationDate(),
                 to.endDate()
         );

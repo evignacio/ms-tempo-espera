@@ -5,4 +5,4 @@ rest-service:
   ms-fila-atendimento:
     url: http://localhost:8080
   ms-gestao-upa:
-    url: http://localhost:8082
+    url: "http://localhost:8085"
