@@ -73,6 +73,10 @@ public class QueuesDetails implements Iterable<QueueDetail> {
         averageWaitingTime = averageTimeTreatment * amountPatientTriageQueue;
     }
 
+    public Iterator<QueueDetail> getQueuesDetails() {
+        return iterator();
+    }
+
     @Override
     public Iterator<QueueDetail> iterator() {
         return queuesDetails == null ? Collections.emptyIterator() : queuesDetails.iterator();

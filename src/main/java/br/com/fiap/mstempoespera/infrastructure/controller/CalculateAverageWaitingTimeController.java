@@ -15,7 +15,7 @@ import java.time.Duration;
 public record CalculateAverageWaitingTimeController(CalculateEstimatedWaitingTimeUseCase calculateEstimatedWaitingTimeUseCase) {
 
     @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<Tuple2<Long, QueuesDetails>> calculate(@RequestHeader SaoPauloCity city) {
+    public Flux<Tuple2<Long, QueuesDetails>> calculate(@RequestParam SaoPauloCity city) {
         var interval = Flux.interval(Duration.ofSeconds(5));
         var queuesDetails = calculateEstimatedWaitingTimeUseCase.execute(city);
         return Flux.zip(interval, queuesDetails);
